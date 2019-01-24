@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>First</title>
+</head>
+<body>
+    <p th:text="'Hello！, ' + ${name} + '!'">3333</p>
+    <!--<p th:text="'User is of type ' + (${user.isAdmin()} ? 'Administrator' : (${user.type} ?: 'Unknown'))">3333</p>-->
+    <a th:href="@{/login}" th:if= "${user eq null}">Login</a>
+    <span th:text="${#calendars.format(today,'yyyy-dd-MMMM ')}">13 May 2011</span>
+    <table>
+        <tr>
+            <th>NAME</th>
+            <th>TYPE</th>
+        </tr>
+        <tr th:each="emp : ${users}">
+            <td th:text="${emp.name}">1</td>
+            <td th:text="${emp.type}">海</td>
+        </tr>
+    </table>
+</body>
+</html>
